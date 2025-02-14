@@ -1,14 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RECETAS</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
-</head>
-<body onload="checkAuth()">
+    <style>
+        /* Color de la barra de navegación en rosa */
+        .bg-pink {
+            background-color: #e91e63 !important; /* Rosa vibrante */
+        }
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary bg-gradient p-3">
+        /* Botón de login en rosa */
+        .btn-pink {
+            background-color: #e91e63;
+            border: none;
+            color: white;
+            padding: 10px 15px;
+            font-size: 16px;
+            transition: 0.3s ease-in-out;
+        }
+
+        /* Efecto hover para el botón de login */
+        .btn-pink:hover {
+            background-color: #c2185b; /* Un rosa más oscuro */
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-pink p-3"> <!-- Barra de navegación rosa -->
         <div class="container-fluid">
             <a class="navbar-brand fs-4" href="#">Buscador de Recetas</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
@@ -23,7 +45,7 @@
                         <a class="nav-link fs-4" href="favoritos.html">Mis Favoritos</a>
                     </li>
                     <li class="nav-item">
-                        <button class="btn btn-danger" onclick="logout()">Cerrar Sesión</button>
+                        <a href="login.html" class="btn btn-pink">Iniciar Sesión</a> <!-- Botón de login rosa -->
                     </li>
                 </ul>
             </div>
@@ -32,20 +54,8 @@
 
     <main class="mt-5 container-lg">
         <h2 class="text-center fs-1">Bienvenido</h2>
+        <p class="text-center">Aquí podrás encontrar las mejores recetas.</p>
     </main>
-
-    <script>
-        function checkAuth() {
-            if (!localStorage.getItem('user')) {
-                window.location.href = 'login.html';
-            }
-        }
-
-        function logout() {
-            localStorage.removeItem('user');
-            window.location.href = 'login.html';
-        }
-    </script>
 
     <script src="js/bootstrap.bundle.min.js"></script>
 </body>
