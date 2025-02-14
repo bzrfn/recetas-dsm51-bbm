@@ -70,7 +70,7 @@
             const loginPassword = document.getElementById('loginPassword').value;
             const storedUser = JSON.parse(localStorage.getItem('user'));
             if (storedUser && storedUser.username === loginUsername && storedUser.password === loginPassword) {
-                window.location.href = 'index.html';
+                window.location.replace('index.html');
             } else {
                 alert('Credenciales incorrectas');
             }
