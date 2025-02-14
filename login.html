@@ -5,40 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iniciar Sesión</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+        .container { max-width: 400px; margin-top: 50px; }
+        .btn-pink { background-color: #e91e63; color: white; }
+        .btn-pink:hover { background-color: #c2185b; }
+    </style>
 </head>
-<body class="d-flex justify-content-center align-items-center vh-100 bg-secondary">
+<body>
 
-    <div class="card p-4 shadow-lg rounded" style="width: 350px;">
-        <h3 class="text-center text-secondary fw-bold">Iniciar Sesión</h3>
+    <div class="container">
+        <h2 class="text-center">Iniciar Sesión</h2>
         <form id="loginForm">
             <div class="mb-3">
-                <label for="loginUsername" class="form-label">Usuario</label>
-                <input type="text" class="form-control" id="loginUsername" placeholder="Ingresa tu usuario" required>
+                <label for="nombreLogin" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="nombreLogin" required>
             </div>
             <div class="mb-3">
-                <label for="loginPassword" class="form-label">Contraseña</label>
-                <input type="password" class="form-control" id="loginPassword" placeholder="********" required>
+                <label for="passwordLogin" class="form-label">Contraseña</label>
+                <input type="password" class="form-control" id="passwordLogin" required>
             </div>
-            <button type="submit" class="btn btn-success w-100">Ingresar</button>
+            <button type="submit" class="btn btn-pink w-100">Ingresar</button>
         </form>
-        <p class="text-center mt-3">¿No tienes cuenta? <a href="registro.html" class="text-success">Regístrate</a></p>
+        <p class="text-center mt-3">¿No tienes cuenta? <a href="registro.html">Regístrate</a></p>
     </div>
 
     <script>
-        document.getElementById('loginForm').addEventListener('submit', function(event) {
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
             event.preventDefault();
-            const loginUsername = document.getElementById('loginUsername').value;
-            const loginPassword = document.getElementById('loginPassword').value;
-            const storedUser = JSON.parse(localStorage.getItem('user'));
-
-            if (storedUser && storedUser.username === loginUsername && storedUser.password === loginPassword) {
-                window.location.href = 'index.html';
-            } else {
-                alert('Credenciales incorrectas');
-            }
+            let nombre = document.getElementById("nombreLogin").value;
+            localStorage.setItem("usuario", nombre);
+            window.location.href = "index.html"; // Redirige al index
         });
     </script>
 
-    <script src="js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
